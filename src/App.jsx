@@ -2,25 +2,33 @@ import React from 'react';
 import { render } from 'react-dom';
 import Workout from './Workout';
 
+const workouts = [
+  {
+    name: 'Chest Press',
+    group: 'Chest',
+    target: 'Upper Body',
+  },
+  {
+    name: 'Leg Press',
+    group: 'Legs',
+    target: 'Lows Body',
+  },
+  {
+    name: 'Bicep Curls',
+    group: 'Arms',
+    target: 'Upper Body',
+  },
+];
+
 function App() {
-  return React.createElement('div', { className: 'container' }, [
-    React.createElement('h1', {}, 'Workout Manager'),
-    React.createElement(Workout, {
-      name: 'Chest Press',
-      group: 'Chest',
-      target: 'Upper Body'
-    }),
-    React.createElement(Workout, {
-      name: 'Leg Press',
-      group: 'Leg',
-      target: 'Lower Body'
-    }),
-    React.createElement(Workout, {
-      name: 'Bicep Curls',
-      group: 'Arms',
-      target: 'Upper Body'
-    })
-  ]);
+  return (
+    <div className='container'>
+      <h1>Workout Manager</h1>
+      {workouts.map((workout, index) => (
+        <Workout key={index} {...workout} />
+      ))}
+    </div>
+  );
 }
 
-render(React.createElement(App), document.getElementById('root'));
+render(<App />, document.getElementById('root'));

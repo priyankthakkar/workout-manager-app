@@ -11,11 +11,12 @@ import React from 'react';
  * @constructor
  */
 function Workout({ name, group, target }) {
-  return React.createElement('div', {}, [
-    React.createElement('h4', {}, name),
-    React.createElement('h6', {}, group),
-    React.createElement('h6', {}, target)
-  ]);
+  return (
+    <div>
+      <h4>{name}</h4>
+      <h6>{group}</h6>
+      <h6>{target}</h6>
+    </div>
+  );
 }
-
 export default Workout;
